@@ -1,0 +1,37 @@
+.App {
+  padding: 40px;
+  font-family: sans-serif;
+  text-align: center;
+  height: 100vh;
+  margin: 0px;
+}
+
+.nfts-list {
+  justify-content: start;
+  align-items: center;
+  display: inline-flex;
+  flex-wrap: wrap;
+  list-style: none;
+  grid-gap: 5rem;
+  padding: 5%;
+}
+
+.grid-item {
+  width: 300px;
+}
+
+.nft-container {
+  padding-top: 10px;
+  border: thin solid rgb(233, 231, 231);
+  border-radius: 0.5em;
+}
+
+.nfts-list img {
+  max-width: 250px;
+  max-height: 250px;
+}
+
+.nfts-list p {
+  justify-content: center;
+  align-items: center;
+}
