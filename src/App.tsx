@@ -9,7 +9,6 @@ import { Home } from './components/Home';
 import { Register } from './components/Register';
 import { NftDisplayer } from './components/NftDisplayer';
 import { ProtectedLayout } from './components/ProtectedLayout';
-import { AddNft } from './components/AddNft';
 
 function App() {
 
@@ -40,7 +39,6 @@ function App() {
           </ProtectedLayout>
 
             <Route path='/addnft'>
-              <AddNft/>
             </Route>
 
         </Switch>

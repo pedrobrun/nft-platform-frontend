@@ -31,7 +31,7 @@ export const NftDisplayer = () => {
   return (
        <div className="App">
          <Title>NFTs Listing</Title>
-         <Button href='http://localhost:3000/addnft' size="large" type="primary" icon={<PlusOutlined/>}>Add NFT</Button>
+         <Button href='' size="large" type="primary" icon={<PlusOutlined/>}>Add NFT</Button>
          <ul className="nfts-list">
            {info.map((nft: any) => {
             return (
