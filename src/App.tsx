@@ -38,7 +38,7 @@ function App() {
             </Route>
           </ProtectedLayout>
 
-            <Route path='/addnft'>
+            <Route path='/add'>
             </Route>
 
         </Switch>
