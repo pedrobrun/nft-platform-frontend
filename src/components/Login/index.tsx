@@ -13,7 +13,7 @@ export const Login = () => {
     
     try {
       console.log('a')
-      auth.authenticate(values.username, values.password).then(() => history.push('nft/list'));
+      auth.authenticate(values.username, values.password).then(() => history.push('nft'));
     } catch (e) {
       message.error('Invalid username or password.').then(() => {console.log(e)});
     }
