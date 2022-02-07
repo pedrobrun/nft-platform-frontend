@@ -39,6 +39,7 @@ export const NftDisplayer = () => {
 
   return (
        <div className="App">
+         <p>You're currently logged in as: {username}</p>
          <Title>NFTs Listing</Title>
          <Row justify="center">
           <Col>
