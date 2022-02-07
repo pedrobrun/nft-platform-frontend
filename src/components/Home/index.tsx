@@ -1,9 +1,14 @@
 import { Button, Col, Row, Typography, Space, Image, Divider } from "antd";
 import { LoginOutlined, FormOutlined } from '@ant-design/icons';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import {setUserLocalStorage} from "../../context/Auth/util";
 const { Title, Text } = Typography;
 
 export const Home = () => {
+
+  useEffect(() => {
+    setUserLocalStorage(null);
+  });
 
   return (
     <Row

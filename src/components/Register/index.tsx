@@ -1,8 +1,21 @@
-import { Button, Col, Form, Input, Row } from "antd";
+import { Button, Col, Form, Input, message, Row } from "antd";
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import React from "react";
+import { Api } from "../../api/api";
+import { useHistory } from "react-router-dom";
 
 export const Register = () => {
+  const history = useHistory();
+
+  const onFinish = (values: {username: string, password: string }) => {
+    const username = values.username;
+    const password = values.password;
+    Api.post('/user/register', { username, password }).then(() => {
+      history.replace('/login');
+      message.success("Succesfully registered! Sign in to be able to create your NFT's")
+    }).catch((e) => { console.log(e.message) })
+  }
+
   return (
     <Row
       justify="center"
@@ -14,31 +27,30 @@ export const Register = () => {
       <Col span={12}>
         <Form
           name="register"
-          labelCol={{ span: 8 }}
+          labelCol={{ span: 3 }}
           wrapperCol={{ span: 16 }}
           // apparentely label align is not working
           // https://github.com/ant-design/ant-design/issues/16067
           labelAlign="left"
-          onFinish={() => {}}
-        ></Form>
-        
-        <Form.Item label="Username" name="username">
-          <Input placeholder="johndoe" size="large" prefix={<UserOutlined/>}></Input>
-        </Form.Item>
+          onFinish={onFinish}
+        >
 
-        <Form.Item label="Password" name="password">
-          <Input.Password placeholder="*******" size="large" prefix={<LockOutlined/>}></Input.Password>
-        </Form.Item>
+          
+          <Form.Item label="Username" name="username">
+            <Input placeholder="johndoe" size="large" prefix={<UserOutlined/>}></Input>
+          </Form.Item>
 
-        <Form.Item label="Password confirmation" name="confirmpassword">
-          <Input.Password placeholder="Your password again" size="large" prefix={<LockOutlined/>}></Input.Password>
-        </Form.Item>
+          <Form.Item label="Password" name="password">
+            <Input.Password placeholder="*******" size="large" prefix={<LockOutlined/>}></Input.Password>
+          </Form.Item>
 
-        <Form.Item wrapperCol={{offset: 8, span: 16}}>
-          <Button type='primary' htmlType='submit'>
-            Login
-          </Button>
-        </Form.Item>
+          <Form.Item wrapperCol={{offset: 8, span: 16}}>
+            <Button type='primary' htmlType='submit'>
+              Register
+            </Button>
+          </Form.Item>
+
+        </Form>
       </Col>
     </Row>
   )

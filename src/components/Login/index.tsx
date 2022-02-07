@@ -1,22 +1,22 @@
 import { Button, Col, Form, Input, Row, message } from "antd";
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { useAuth } from "../../context/AuthProvider/useAuth";
-import React from "react";
 import { useHistory } from "react-router-dom";
+import { Api } from "../../api/api";
+import {getUserLocalStorage, setUserLocalStorage} from "../../context/Auth/util";
 
 export const Login = () => {
-  const auth = useAuth();
   const history = useHistory();
 
 
   const onFinish = (values: {username: string, password: string}) => {
-    
-    try {
-      console.log('a')
-      auth.authenticate(values.username, values.password).then(() => history.push('nft'));
-    } catch (e) {
-      message.error('Invalid username or password.').then(() => {console.log(e)});
-    }
+    const username = values.username;
+    const password = values.password;
+    Api.post('/user/login', { username, password }).then((r) => {
+      const username = r.data.authenticated.username;
+      const token = r.data.authenticated.token;
+      setUserLocalStorage({usrname: username, token: token})
+      history.replace('nft');
+    }).catch((e) => { message.error('Invalid username or password') })
   }
 
   return (
