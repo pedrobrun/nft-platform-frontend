@@ -1,4 +1,4 @@
-import { Button, Col, Row, Typography, Space, Image, Divider } from "antd";
+import { Button, Col, Row, Typography, Space, Image, Divider, message } from "antd";
 import { LoginOutlined, FormOutlined } from '@ant-design/icons';
 import React, { useEffect, useState } from "react";
 import {setUserLocalStorage} from "../../context/Auth/util";
@@ -7,6 +7,7 @@ const { Title, Text } = Typography;
 export const Home = () => {
 
   useEffect(() => {
+    message.info("NOTE: Your first request might take a while to finish, because this application is hosted on Heroku. After the first one it will be faster! :)", 15)
     setUserLocalStorage(null);
   });
 
