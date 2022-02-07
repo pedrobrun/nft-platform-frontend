@@ -28,7 +28,7 @@ Considerations: I had never worked with React and probably there's lots of ugly 
 - You can delete your NFT if your logged in account is the creator of it.
 - You can list all nfts.
 
-The flow inteded to happen:
+### The flow intended to happen:
 1. Register an account
 2. Log in to your account
 3. You'll be redirected to the NFT listing page, where you can:
