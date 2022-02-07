@@ -2,7 +2,7 @@
 
 Backend docs: https://github.com/pedrobrun/nft-platform-backend
 
-I planned on deploying this application to Heroku just like I did with the backend, but I had a bit of a hard time trying and ended up failing. https://nft-platform-frontend.herokuapp.com/
+I planned on deploying this application to Heroku just like I did with the backend, but I had a bit of a hard time trying and ended up failing. https://nft-platform-frontend.herokuapp.com/ .
 So you'll have to run it locally, unfortunately.
 
 Considerations: I had never worked with React and probably there's lots of ugly code in here (I'm sorry) and a ton of things that work but could be improved.
