@@ -17,7 +17,7 @@ Considerations: I had never worked with React and probably there's lots of ugly 
 1. Clone the repo: `git clone https://github.com/pedrobrun/nft-platform-frontend.git`
 2. Install dependencies: `yarn`
 3. Run it: `yarn dev`
-4. Access the port ON which it's running. It will be printed on the terminal anyway, but by default it's `http://localhost:3000`
+4. Access the port on which it's running. It will be printed on the terminal anyway, but by default it's `http://localhost:3000`
 
 <br/>
 
