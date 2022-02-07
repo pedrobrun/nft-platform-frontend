@@ -5,8 +5,7 @@
     "dev": "vite",
     "start": "node dist/index.js",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "postinstall": "yarn dev"
+    "preview": "vite preview"
   },
   "engines": {
     "node": "14.17.6",
