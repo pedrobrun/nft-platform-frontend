@@ -19,3 +19,18 @@ Considerations: I had never worked with React and probably there's lots of ugly 
 3. Run it: `yarn dev`
 4. Access the port ON which it's running. It will be printed on the terminal anyway, but by default it's `http://localhost:3000`
 
+<br/>
+
+### INFORMATIONS and FUNCTIONALITIES:
+- You can register a User.
+- You can log in usign your registered User.
+- You can create an NFT if you're logged in.
+- You can delete your NFT if your logged in account is the creator of it.
+- You can list all nfts.
+
+The flow inteded to happen:
+1. Register an account
+2. Log in to your account
+3. You'll be redirected to the NFT listing page, where you can:
+4. Create an NFT (Providing a title, a description, an usd floor price and an image)
+5. Delete an NFT if you created it
