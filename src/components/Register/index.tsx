@@ -1,13 +1,16 @@
-import { Button, Col, Form, Input, message, Row } from "antd";
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import React from "react";
+import { Button, Col, Form, Input, message, Row, Spin } from "antd";
+import { UserOutlined, LockOutlined, LoginOutlined } from '@ant-design/icons';
+import React, { useState } from "react";
 import { Api } from "../../api/api";
 import { useHistory } from "react-router-dom";
+import ReactDOM from "react-dom";
 
 export const Register = () => {
   const history = useHistory();
+  const [loading, setLoading] = useState(false);
 
   const onFinish = (values: {username: string, password: string }) => {
+    setLoading(true);
     const username = values.username;
     const password = values.password;
     Api.post('/user/register', { username, password }).then((r) => {
@@ -15,7 +18,7 @@ export const Register = () => {
       message.success("Succesfully registered! Sign in to be able to create your NFT's")
     }).catch((e) => {
       message.error('Username probably already exists. Try again using other one!', 10)
-    });
+    }).finally(() => setLoading(false));
   }
 
   return (
@@ -46,11 +49,13 @@ export const Register = () => {
             <Input.Password placeholder="*******" size="large" prefix={<LockOutlined/>}></Input.Password>
           </Form.Item>
 
-          <Form.Item wrapperCol={{offset: 8, span: 16}}>
-            <Button type='primary' htmlType='submit'>
-              Register
-            </Button>
-          </Form.Item>
+          { loading ? <h3>loading...</h3> :
+            <Form.Item wrapperCol={{offset: 8, span: 16}}>
+              <Button type='primary' htmlType='submit'>
+                Register
+              </Button>
+            </Form.Item>
+          }
 
         </Form>
       </Col>

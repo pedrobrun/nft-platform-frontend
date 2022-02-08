@@ -18,6 +18,7 @@ export const AddNft = () => {
   const [user, setUser] = useState<any>();
   const [token, setToken] = useState<any>();
   const [file, setFile] = useState<any>();
+  const [loading, setLoading] = useState(false);
 
   const u = getUserLocalStorage();
 
@@ -39,6 +40,7 @@ export const AddNft = () => {
     usdFloorPrice: string;
     file: any;
   }) => {
+    setLoading(true);
     const fd = new FormData();
     console.log(fd);
     fd.append("file", file);
@@ -53,11 +55,13 @@ export const AddNft = () => {
       },
     })
       .then(() => {
-        history.push("/nft");
+        history.replace("/nft");
         message.success("You have succesfully created your NFT!");
       })
       .catch((e) => {
         message.error("Not able to create NFT");
+      }).finally(() => {
+        setLoading(true);
       });
   };
 
@@ -97,12 +101,13 @@ export const AddNft = () => {
           <Form.Item name="file" required={true}>
             <input type="file" onChange={fileSelectedHandler} />
           </Form.Item>
-
-          <Form.Item wrapperCol={{ offset: 6 }}>
-            <Button type="primary" htmlType="submit" size="large">
-              Create
-            </Button>
-          </Form.Item>
+          { loading? <h3>loading...</h3> :    
+            <Form.Item wrapperCol={{ offset: 6 }}>
+              <Button type="primary" htmlType="submit" size="large">
+                Create
+              </Button>
+            </Form.Item>
+          }
         </Form>
       </Col>
     </Row>

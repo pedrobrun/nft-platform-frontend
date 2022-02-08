@@ -3,12 +3,15 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { useHistory } from "react-router-dom";
 import { Api } from "../../api/api";
 import {getUserLocalStorage, setUserLocalStorage} from "../../context/Auth/util";
+import { useState } from "react";
 
 export const Login = () => {
   const history = useHistory();
+  const [loading, setLoading] = useState(false);
 
 
   const onFinish = (values: {username: string, password: string}) => {
+    setLoading(true);
     const username = values.username;
     const password = values.password;
     Api.post('/user/login', { username, password }).then((r) => {
@@ -16,7 +19,9 @@ export const Login = () => {
       const token = r.data.authenticated.token;
       setUserLocalStorage({usrname: username, token: token})
       history.replace('nft');
-    }).catch((e) => { message.error('Invalid username or password') })
+    }).catch((e) => { message.error('Invalid username or password') }).finally(() => {
+      setLoading(false);
+    })
   }
 
   return (
@@ -46,12 +51,13 @@ export const Login = () => {
 
             </Input.Password>
           </Form.Item>
-
-        <Form.Item wrapperCol={{offset: 6}}>
-          <Button type="primary" htmlType="submit" size="large">
-            Login
-          </Button>
-        </Form.Item>
+        { loading? <h3>loading...</h3> :    
+          <Form.Item wrapperCol={{offset: 6}}>
+            <Button type="primary" htmlType="submit" size="large">
+              Login
+            </Button>
+          </Form.Item>
+        }
         </Form>
       </Col>
     </Row>
