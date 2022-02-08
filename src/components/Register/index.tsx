@@ -10,10 +10,12 @@ export const Register = () => {
   const onFinish = (values: {username: string, password: string }) => {
     const username = values.username;
     const password = values.password;
-    Api.post('/user/register', { username, password }).then(() => {
+    Api.post('/user/register', { username, password }).then((r) => {
       history.replace('/login');
       message.success("Succesfully registered! Sign in to be able to create your NFT's")
-    }).catch((e) => { console.log(e.message) })
+    }).catch((e) => {
+      message.error('Username probably already exists. Try again using other one!', 10)
+    });
   }
 
   return (
