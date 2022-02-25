@@ -28,7 +28,6 @@ export const NftDisplayer = () => {
   });
 
   const handleDelete = async (id: string) => {
-    console.log('oi')
     Api.post(`/nft/delete`, { id, username }, { headers: {
       'authorization': `Bearer ${accessToken}`
     }}).then((r) => {

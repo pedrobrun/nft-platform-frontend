@@ -7,10 +7,8 @@ export async function getAll(accessToken: string) {
       { headers: {
         "Authorization": accessToken
     }});
-    console.log(req.data)
     return req.data;
   }catch(e){
-    console.log(e);
     return null;
   }
 }

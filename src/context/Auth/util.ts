@@ -1,7 +1,6 @@
 import { IUser } from "./types";
 
 export function setUserLocalStorage(user: IUser | null) {
-  console.log(user);
   localStorage.setItem('u', JSON.stringify(user));
 }
 

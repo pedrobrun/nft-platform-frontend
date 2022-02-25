@@ -29,8 +29,6 @@ export const AddNft = () => {
   }, []);
 
   const fileSelectedHandler = (e: any) => {
-    console.log(e.target.files);
-    console.log(e.target.files[0]);
     setFile(e.target.files[0]);
   };
 
@@ -42,7 +40,6 @@ export const AddNft = () => {
   }) => {
     setLoading(true);
     const fd = new FormData();
-    console.log(fd);
     fd.append("file", file);
     fd.append("title", values.title);
     fd.append("description", values.description);
