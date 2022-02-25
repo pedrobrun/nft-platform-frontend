@@ -23,7 +23,7 @@ Considerations: I had never worked with React and probably there's lots of ugly 
 
 ### INFORMATIONS and FUNCTIONALITIES:
 - You can register a User.
-- You can log in usign your registered User.
+- You can log in using registered User.
 - You can create an NFT if you're logged in.
 - You can delete your NFT if your logged in account is the creator of it.
 - You can list all nfts.
